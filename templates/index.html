@@ -1,0 +1,118 @@
+<!doctype html>  
+ 
+<head>  
+ 
+  <title>Machine Learning Project</title> 
+  
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style_.css') }}">
+
+  <script src=
+"https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+    </script>
+  
+    <script>
+        $(document).ready(function() {
+  
+            // Set initial state
+            $('#textbox2').val($(this).is(':checked'));
+  
+            // It gets checked to false as uncheck
+            // is the default
+            $('#checkbox1').click(function() {
+                $('#textbox2').val($(this).is(':checked'));
+            });
+        });
+    </script>
+
+ 
+</head> 
+ 
+<body > 
+ 
+  <div id="container" > 
+  	<div class="extra_wrap" > 
+  	  	<!-- header --> 
+     <header > 
+      <!-- .logo --> 
+         <div class="logo"> <a href="{{url_for('home')}}">
+   <img src="{{ url_for('static',filename='images/logo.png') }}" height=75px width=55px alt="Machine Learning" title="Machine Learning" ></a></div> 
+         <!-- /.logo --> 
+         <nav> 
+         <ul class="sf-menu"> 
+ 
+ <li><a href="{{url_for('home')}}" class="current">Home</a></li> 
+ 
+           
+ <li><a >Features</a>
+ <ul> 
+ <li><a href="#">Content</a></li>
+ </ul>
+ </li> 
+ 
+ <li><aFeatures</a>
+ <ul> 
+ <li><a href="#">Effects</a></li>
+ </ul>
+ </li>
+ 
+ <li><a>Services</a> 
+ <ul>
+ <li><a href="#">Content</a></li> 
+ </ul>
+ </li>
+ 
+ <li><a href="{{url_for('about')}}">About Us</a></li>          
+         
+         </ul> 
+       </nav> 
+     </header > 
+ <!--EOF header-->
+     <hr>
+    
+   <br><br><br>
+        	<div class="carousel"> 
+          <div >
+            <form class="box"  action="{{url_for('Value_from_form')}}" method="post">
+              <h1 style="background:#191919;" >Recommendation</h1>
+                <input type="text" name="userId" placeholder="User Id" >
+                <input type="text" name="noOfRecommendation" placeholder="Recommendation">
+
+                <input type="checkbox" id="checkbox1" />
+                <label for="checkbox1">Exclude Rated</label>                       
+               <input type="hidden" name="excludeRated" id="textbox2" readonly/>
+
+
+                
+                
+                
+                <input type="submit" name="" value="Submit">
+            </form>
+
+          </div>
+          </div> 
+        <!-- EOF carousel --> 
+        
+   <div id="main"> 
+		<div class="container"> 
+
+        	
+            </div> 
+            </div> 
+
+       
+   <!-- footer --> 
+    <footer> 
+		<div class="copy">&copy; Copyright 2021, print("Hello World")</div> 
+       
+    </footer> 
+  <!-- EOF footer --> 
+  </div>
+</div>
+  
+
+
+
+</body> 
+</html>

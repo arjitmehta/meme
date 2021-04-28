@@ -1,0 +1,209 @@
+<!doctype html>  
+ 
+<head>  
+ 
+
+ 
+  <title>Machine Learning Project</title> 
+  <style>
+    .center {
+  margin: auto;
+  width: 10%;
+  padding: 10px;
+}
+
+.bt_us_button input[type = "submit"]{
+  border:0;
+  background: none;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border: 2px solid #2ecc71;
+  padding: 14px 40px;
+  outline: none;
+  color: white;
+  border-radius: 24px;
+  transition: 0.25s;
+  cursor: pointer;
+}
+.bt_us_button input[type = "submit"]:hover{
+  background: #2ecc71;
+}
+
+#table_th th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+
+#table_th_user {
+  font-family: Arial, Helvetica, sans-serif;
+  
+  vertical-align: middle;
+  border-collapse: collapse;
+  width: 100%;
+  font-size: large;
+
+}
+
+#table_th_user td, #table_th_user th {
+  border: 1px solid #ddd;
+  vertical-align: middle;
+  text-align: center;
+  padding: 4px;
+}
+
+#table_th_user tr:nth-child(even){background-color: #f2f2f2;}
+
+#table_th_user tr:hover {background-color: #ddd;}
+
+#table_th_user th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+  </style>
+  
+  
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style_.css') }}">
+
+
+ 
+</head> 
+ 
+<body > 
+ 
+  <div id="container" > 
+  	<div class="extra_wrap" > 
+ <!-- header --> 
+ <header > 
+  <!-- .logo --> 
+     <div class="logo"> <a href="{{url_for('home')}}">
+<img src="{{ url_for('static',filename='images/logo.png') }}" height=75px width=55px alt="Machine Learning" title="Machine Learning" ></a></div> 
+     <!-- /.logo --> 
+     <nav> 
+     <ul class="sf-menu"> 
+
+<li><a href="{{url_for('home')}}" class="current">Home</a></li> 
+
+       
+<li><a >Features</a>
+<ul> 
+<li><a href="#">Content</a></li>
+</ul>
+</li> 
+
+<li><aFeatures</a>
+<ul> 
+<li><a href="#">Effects</a></li>
+</ul>
+</li>
+
+<li><a>Services</a> 
+<ul>
+<li><a href="#">Content</a></li> 
+</ul>
+</li>
+
+<li><a href="{{url_for('about')}}">About Us</a></li>          
+     
+     </ul> 
+   </nav> 
+ </header > 
+<!--EOF header-->
+<hr>
+   <br><br><br>
+        	<div class="carouel"> 
+          <div >
+            <table id="table_th_user" >
+              <thead>
+                  <tr>
+                      {% for col in colnames %}
+                      <th >{{ col }}</th>
+                      {% endfor %}
+                  </tr>
+              </thead>
+              <tbody>
+                  <form method="post" id="FORMID" action="{{url_for('user_rating')}}">
+                      {% for record in records %}
+                  <tr>
+                      {% for col in colnames %}
+                      <td>                 
+                      {% if (col != 'image_path') and ( col != 'Rating' ) %}
+        
+                          {{ record[col] }}
+                      
+                      {% endif %}                    
+                      
+                       <!--Movie Poster-->  
+                      {% if col == 'image_path' %}
+                      
+                     <img src="{{url_for('static',filename='images/')}}{{record[col]}}" style="width:250px">
+                      
+                     {% endif %}
+                     <!--end of Movie Poster-->  
+                     
+                      <!--form Rating-->
+                      {% if col == 'Rating' %}
+        
+                    <div style="text-align: justify; vertical-align: middle;">
+                      <div class="rating-css">
+                        <div class="star-icon">
+                          <input type="radio" name={{ record[col] }} id="rating1" value="1"> 
+                          <label for="rating1" class="fa fa-star">Like</label>
+                          <br><br>
+                          <input type="radio" name={{ record[col] }} id="rating2" value="-1">
+                          <label for="rating2" class="fa fa-star">Dislike</label>
+                          
+                        </div>
+                      </div>
+                    </div>
+        
+                      {% endif %}
+                      <!--end of form Rating-->
+                      </td>
+                      {% endfor %}
+                  </tr>
+                  {% endfor %}
+                  
+              </tbody>
+          </table>
+           
+          <hr>
+          <br>
+          <div class="bt_us_button ">    <input type="submit"  value=" Send Me! ">   </div>
+                  </form>
+                
+
+          </div>
+          </div> 
+        <!-- EOF carousel --> 
+        
+   <div id="main"> 
+		<div class="container"> 
+
+        	
+            </div> 
+            </div> 
+
+       
+   <!-- footer --> 
+    <footer> 
+		<div class="copy">&copy; Copyright 2021, print("Hello World")</div> 
+       
+    </footer> 
+  <!-- EOF footer --> 
+  </div>
+</div>
+  
+
+
+
+</body> 
+</html>
